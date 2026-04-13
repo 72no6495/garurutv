@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上野ガルルTV 公式サイト</title>
+    <style>
+        /* 全体のスタイル設定 */
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: #FFD700; /* テーマカラーの黄色 */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* ヘッダー（トップ画像） */
+        .hero-img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-bottom: 5px dashed #ff6b6b;
+        }
+
+        /* メインコンテンツ部分 */
+        main {
+            max-width: 800px;
+            margin: -30px auto 40px;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            color: #ff6b6b;
+            font-size: 2.2em;
+            margin-top: 0;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #FFD700;
+            display: inline-block;
+            padding-bottom: 5px;
+            letter-spacing: 2px;
+        }
+
+        /* プロフィールレイアウト */
+        .profile-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .profile-img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid #FFD700;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-text {
+            text-align: left;
+            max-width: 400px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .profile-text p {
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .profile-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .profile-text li {
+            margin-bottom: 12px;
+            background: #fff9c4;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        /* メッセージボックス */
+        .message-box {
+            background-color: #fff0f0;
+            border: 3px solid #ff6b6b;
+            border-radius: 15px;
+            padding: 25px;
+            font-weight: bold;
+            line-height: 1.8;
+            font-size: 1.1em;
+            text-align: left;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .message-box::before {
+            content: "💬";
+            font-size: 2.2em;
+            position: absolute;
+            top: -38px; /* 吹き出しの位置をさらに上に調整 */
+            left: 20px;
+            background: #ffffff;
+            border-radius: 50%;
+            padding: 0 5px;
+        }
+
+        /* SNSリンクボタン群 */
+        .sns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .sns-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .sns-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            opacity: 0.9;
+        }
+
+        /* 各SNSのカラー */
+        .btn-youtube { background-color: #ff0000; font-size: 1.2em; padding: 15px 40px; border-radius: 50px;}
+        .btn-twitter { background-color: #1DA1F2; }
+        .btn-tiktok { background-color: #000000; }
+        .btn-facebook { background-color: #1877F2; }
+        .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .btn-blog { background-color: #ffb142; }
+        .btn-skype { background-color: #00AFF0; cursor: default;}
+
+        /* フッター（一番下の画像とコピーライト） */
+        .footer-img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-top: 5px dashed #ff6b6b;
+        }
+
+        .footer-bottom {
+            padding: 20px 20px 40px 20px;
+        }
+
+        .footer-bottom p {
+            margin: 0 0 15px 0;
+            font-weight: bold;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        /* 作者サイトへのリンクボタン */
+        .author-link {
+            display: inline-block;
+            font-size: 0.8em;
+            color: #777;
+            text-decoration: none;
+            padding: 6px 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            background-color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .author-link:hover {
+            background-color: #FFD700;
+            color: #333;
+            border-color: #FFD700;
+        }
+
+        @media (max-width: 600px) {
+            .profile-content {
+                flex-direction: column;
+            }
+            main {
+                margin: -20px 15px 30px;
+            }
+            .profile-img {
+                width: 220px;
+                height: 220px;
+            }
+            .sns-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="1000024186.jpg" alt="上野ガルルTV トップ画像" class="hero-img">
+    </header>
+
+    <main>
+        <section class="profile">
+            <h2>PROFILE</h2>
+            <div class="profile-content">
+                <img src="1000024187.jpg" alt="上野ガルル プロフィール" class="profile-img">
+                
+                <div class="profile-text">
+                    <p>YouTube歴10年以上のベテランクリエイター！</p>
+                    <ul>
+                        <li>🚀 <strong>好きな話題：</strong> 未来の話をすること</li>
+                        <li>🚗 <strong>好きなもの：</strong> カーナビ</li>
+                        <li>✨ <strong>将来の夢：</strong> 不老不死になること！</li>
+                    </ul>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <a href="https://youtube.com/@uenogarurutv?si=PzLIXpKthbXcrV3R" target="_blank" class="sns-btn btn-youtube">▶ メインチャンネルはこちら</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="message">
+            <h2>MESSAGE</h2>
+            <div class="message-box">
+                真面目負けて！動画見てくれてありがとうございます。<br>
+                チャンネル登録、高評価、コメントよろしくお願いします。<br>
+                他のSNSもチェックお願いします！<br><br>
+                <span style="font-size: 0.9em; color: #666;">
+                東京もいろいろ お願いします YouTube のチャンネルをお願いします お願いできます お願いします YouTube のコメントもお願いします YouTube のチャンネルをお願いしませあ 願いできます お願いントもお願いし、ます！
+                </span>
+            </div>
+        </section>
+
+        <section class="sns-links">
+            <h2>SNS & BLOG</h2>
+            <div class="sns-grid">
+                <a href="https://t.co/YwgFUuH5F6" target="_blank" class="sns-btn btn-twitter">🐦 Twitter (@uenogalulu)</a>
+                <a href="https://t.co/X7pOHjFDhL" target="_blank" class="sns-btn btn-tiktok">🎵 TikTok (メイン)</a>
+                <a href="https://t.co/2LiJdHyU1k" target="_blank" class="sns-btn btn-instagram">📷 Instagram</a>
+                <a href="https://t.co/kFXDOBzmsa" target="_blank" class="sns-btn btn-facebook">📘 Facebook</a>
+                <a href="https://t.co/D4tTNospaZ" target="_blank" class="sns-btn btn-blog">✍️ 上野ガルルブログ</a>
+                <div class="sns-btn btn-skype">📞 Skype: galugalugaluchan</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <img src="1000024188.jpg" alt="チャンネル登録お願いします！" class="footer-img">
+        <div class="footer-bottom">
+            <p>&copy; 上野ガルルTV All Rights Reserved.</p>
+            <a href="https://72no6495.web.fc2.com/" target="_blank" class="author-link">作者のサイトはこちら</a>
+        </div>
+    </footer>
+
+</body>
+</html>
